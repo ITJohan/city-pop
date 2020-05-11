@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto&display=swap');
+
+/* Variables */
+:root {
+  --primary-color: #0098ba;
+  --secondary-color: #00738d; 
+}
+
 /* Reset */
 * {
   box-sizing: border-box;
@@ -6,11 +14,41 @@
 }
 
 body {
+  align-items: center;
   background: url('../img/background.jpg') center / cover no-repeat;
   background-size: cover;
   background-position: top;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Roboto', sans-serif;
   height: 100vh;
+  justify-content: center;
+}
+
+body div {
+  height: 100%;
+}
+
+button {
+  background-color: var(--primary-color); 
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 1rem;
+  padding: 1rem;
+  width: 14rem;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  margin-top: 10vh;
+  text-align: center;
 }

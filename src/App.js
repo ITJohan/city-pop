@@ -1,9 +1,12 @@
 import React from 'react';
+import Button from './components/Button';
 
-function App() {
+const App = () => {
   return (
     <div>
-      Test
+      <h1>CityPop</h1>
+      <Button text='SEARCH BY CITY' />
+      <Button text='SEARCH BY COUNTRY' />
     </div> 
   );
 }
