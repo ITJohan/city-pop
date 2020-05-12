@@ -45,6 +45,11 @@ button:hover {
   cursor: pointer;
 }
 
+button.round {
+  border-radius: 50%;
+  width: auto;
+}
+
 h1 {
   font-family: 'Pacifico', sans-serif;
   font-size: 5rem;

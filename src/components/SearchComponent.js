@@ -1,15 +1,15 @@
 import React from 'react';
 
-import NavigationRow from './NavigationRow';
-import SearchBar from './SearchBar';
+import SearchBar from './search/SearchBar';
+import SearchButton from './search/SearchButton';
 
 const SearchComponent = () => {
   return (
-    <main>
-      <NavigationRow header='SEARCH BY CITY' />
+    <div>
       <SearchBar />
-    </main>
-  ); 
+      <SearchButton /> 
+    </div>
+  );
 }
 
 export default SearchComponent;

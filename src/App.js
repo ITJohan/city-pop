@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import StartComponent from './components/StartComponent';
-import SearchComponent from './components/SearchComponent';
+import SearchContainer from './components/SearchContainer';
 
 const App = () => {
   return (
@@ -15,11 +15,11 @@ const App = () => {
           </Route>
 
           <Route exact path='/city'>
-            <SearchComponent />
+            <SearchContainer />
           </Route>
 
           <Route exact path='/country'>
-            <SearchComponent />
+            <SearchContainer />
           </Route>
 
           <Route exact path={ ['/city/population', '/country/cities/population'] }>
