@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavigationRow from './NavigationRow';
+import NavigationRow from '../NavigationRow';
 import SearchComponent from './SearchComponent';
 
 const SearchContainer = () => {
