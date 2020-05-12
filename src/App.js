@@ -4,8 +4,9 @@ import StartComponent from './components/containers/StartComponent';
 import SearchContainer from './components/containers/SearchContainer';
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchType, setSearchType] = useState('city');
+  const [searchType, setSearchType] = useState('');
 
   const handleCitySubmit = e => {
     e.preventDefault();
@@ -14,7 +15,8 @@ const App = () => {
     setSearchType('city');
 
     // Perform API fetch
-    
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 2000);
   };
 
   const handleCountrySubmit = e => {
@@ -24,6 +26,8 @@ const App = () => {
     setSearchType('country');
 
     // Perform API fetch
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 2000);
   }
 
   return (
@@ -36,11 +40,11 @@ const App = () => {
           </Route>
 
           <Route exact path='/city'>
-            <SearchContainer handleSubmit={ handleCitySubmit } type='city' />
+            <SearchContainer handleSubmit={ handleCitySubmit } isLoading={ isLoading } type='city' />
           </Route>
 
           <Route exact path='/country'>
-            <SearchContainer handleSubmit={ handleCountrySubmit } type='country' />
+            <SearchContainer handleSubmit={ handleCountrySubmit } isLoading={ isLoading } type='country' />
           </Route>
 
           <Route exact path={ ['/city/population', '/country/cities/population'] }>
