@@ -1,13 +1,30 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import StartComponent from './components/containers/StartComponent';
 import SearchContainer from './components/containers/SearchContainer';
 
 const App = () => {
-  const handleSubmit = e => {
-    console.log('submitted');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchType, setSearchType] = useState('city');
+
+  const handleCitySubmit = e => {
+    e.preventDefault();
+
+    setSearchTerm(e.target[0].value);
+    setSearchType('city');
+
+    // Perform API fetch
+    
   };
+
+  const handleCountrySubmit = e => {
+    e.preventDefault();
+
+    setSearchTerm(e.target[0].value);
+    setSearchType('country');
+
+    // Perform API fetch
+  }
 
   return (
     <Router>
@@ -19,11 +36,11 @@ const App = () => {
           </Route>
 
           <Route exact path='/city'>
-            <SearchContainer handleSubmit={ handleSubmit } type='city' />
+            <SearchContainer handleSubmit={ handleCitySubmit } type='city' />
           </Route>
 
           <Route exact path='/country'>
-            <SearchContainer handleSubmit={ handleSubmit } type='country' />
+            <SearchContainer handleSubmit={ handleCountrySubmit } type='country' />
           </Route>
 
           <Route exact path={ ['/city/population', '/country/cities/population'] }>

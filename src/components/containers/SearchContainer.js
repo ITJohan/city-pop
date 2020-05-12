@@ -7,7 +7,7 @@ const SearchContainer = ({ handleSubmit, type }) => {
 
   return (
     <main>
-      <NavigationRow header={ `SEARCH BY ${ type.toUpperCase() }` } />
+      <NavigationRow header={ `SEARCH BY ${ type.toUpperCase() }` } type={ type } />
       <SearchComponent handleSubmit={ handleSubmit } type={ type } />
     </main>
   ); 
