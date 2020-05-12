@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Button from './components/Button';
 import StartComponent from './components/StartComponent';
+import SearchComponent from './components/SearchComponent';
 
 const App = () => {
   return (
@@ -15,14 +15,15 @@ const App = () => {
           </Route>
 
           <Route exact path='/city'>
+            <SearchComponent />
+          </Route>
+
+          <Route exact path='/country'>
+            <SearchComponent />
           </Route>
 
           <Route exact path={ ['/city/population', '/country/cities/population'] }>
             <p>Population</p>
-          </Route>
-
-          <Route exact path='/country'>
-            <p>Search for country</p>
           </Route>
 
           <Route exact path='/country/cities'>

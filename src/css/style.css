@@ -59,3 +59,10 @@ main {
   height: 200px;
   width: 30rem;
 }
+
+nav {
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  padding: 1rem;
+}

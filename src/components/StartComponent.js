@@ -7,10 +7,10 @@ const StartComponent = () => {
   return (
     <Fragment>
       <Link to='/city'>
-        <Button text='SEARCH FOR CITY' />
+        <Button text='SEARCH FOR CITY' handler={ () => {} } />
       </Link>
       <Link to='/country'>
-        <Button text='SEARCH FOR COUNTRY' />
+        <Button text='SEARCH FOR COUNTRY' handler={ () => {} } />
       </Link>
     </Fragment>
   ); 
