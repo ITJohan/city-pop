@@ -20,6 +20,7 @@ body {
   background-position: top;
   display: flex;
   font-family: 'Roboto', sans-serif;
+  font-size: 0.5rem;
   height: 100vh;
   justify-content: center;
 }
@@ -58,16 +59,33 @@ h1 {
   text-align: center;
 }
 
+input {
+  border: 1px solid #999;
+  border-radius: 0.25rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 70%;
+}
+
 main {
   background-color: #fff;
   border-radius: 0.25rem;
-  height: 200px;
   width: 30rem;
 }
 
 nav {
   display: flex;
+  font-size: 1rem;
   font-weight: bold;
   justify-content: space-between;
   padding: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }

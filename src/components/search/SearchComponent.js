@@ -1,15 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import SearchBar from './SearchBar';
-import SearchButton from './SearchButton';
-
-const SearchComponent = () => {
+const SearchComponent = ({ handleSubmit, type }) => {
   return (
-    <div>
-      <SearchBar />
-      <SearchButton /> 
-    </div>
+    <form className='content' onSubmit={ handleSubmit } >
+      <input placeholder={ `Enter a ${ type }...` } />
+      <button className='round' type='submit'><FontAwesomeIcon icon={ faSearch } /></button>
+    </form>
   );
+}
+
+SearchComponent.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired
 }
 
 export default SearchComponent;

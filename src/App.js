@@ -1,10 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import StartComponent from './components/search/StartComponent';
-import SearchContainer from './components/search/SearchContainer';
+import StartComponent from './components/containers/StartComponent';
+import SearchContainer from './components/containers/SearchContainer';
 
 const App = () => {
+  const handleSubmit = e => {
+    console.log('submitted');
+  };
+
   return (
     <Router>
       <div>
@@ -15,11 +19,11 @@ const App = () => {
           </Route>
 
           <Route exact path='/city'>
-            <SearchContainer />
+            <SearchContainer handleSubmit={ handleSubmit } type='city' />
           </Route>
 
           <Route exact path='/country'>
-            <SearchContainer />
+            <SearchContainer handleSubmit={ handleSubmit } type='country' />
           </Route>
 
           <Route exact path={ ['/city/population', '/country/cities/population'] }>
