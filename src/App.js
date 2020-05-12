@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import Button from './components/Button';
+import StartComponent from './components/StartComponent';
 
 const App = () => {
   return (
@@ -9,27 +11,21 @@ const App = () => {
         <h1>CityPop</h1>
         <Switch>
           <Route exact path='/'>
-            <Link to='/city'>
-              <Button text='SEARCH FOR CITY' />
-            </Link>
-            <Link to='/country'>
-              <Button text='SEARCH FOR COUNTRY' />
-            </Link>
+            <StartComponent />
           </Route>
 
           <Route exact path='/city'>
-            <p>Search for city</p>
+          </Route>
+
+          <Route exact path={ ['/city/population', '/country/cities/population'] }>
+            <p>Population</p>
           </Route>
 
           <Route exact path='/country'>
             <p>Search for country</p>
           </Route>
 
-          <Route exact path='city/population'>
-            <p>Population</p>
-          </Route>
-
-          <Route exact path='/country/city'>
+          <Route exact path='/country/cities'>
             <p>List of cities</p>
           </Route>
         </Switch>
