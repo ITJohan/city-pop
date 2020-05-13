@@ -89,3 +89,7 @@ nav {
   justify-content: center;
   height: auto;
 }
+
+.spinner {
+  padding-bottom: 1rem;
+}

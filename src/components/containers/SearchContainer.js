@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NavigationRow from '../NavigationRow';
 import SearchComponent from '../search/SearchComponent';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../Spinner';
 
 const SearchContainer = ({ handleSubmit, isLoading, type }) => {
 
@@ -11,7 +10,7 @@ const SearchContainer = ({ handleSubmit, isLoading, type }) => {
     <main>
       <NavigationRow header={ `SEARCH BY ${ type.toUpperCase() }` } type={ type } />
       { isLoading ?
-        <FontAwesomeIcon icon={ faSpinner } /> :
+        <Spinner /> :
         <SearchComponent handleSubmit={ handleSubmit } type={ type } />
       }
     </main>
