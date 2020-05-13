@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import NavigationRow from '../NavigationRow';
 import SearchComponent from '../search/SearchComponent';
 import Spinner from '../Spinner';
+import { Redirect } from 'react-router-dom';
 
-const SearchContainer = ({ handleSubmit, isLoading, type }) => {
+const SearchContainer = ({ handleSubmit, isLoading, resultFound, type }) => {
+  if (resultFound) {
+    return <Redirect to={ `/${type}/population` } />;
+  }
 
   return (
     <main>
