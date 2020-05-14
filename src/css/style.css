@@ -82,6 +82,14 @@ nav {
   padding: 1rem;
 }
 
+.container-row {
+  background-color: #eee;
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
 .content {
   display: flex;
   flex-direction: column;

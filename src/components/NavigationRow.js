@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const NavigationRow = ({ header, type }) => {
+const NavigationRow = ({ header, backPath, resetSearch }) => {
   return (
     <nav>
-      <Link to='/city'>
-        { (type === 'population' || type === 'cities') && <FontAwesomeIcon icon={ faChevronLeft } /> }
+      <Link to={ `${ backPath }` }>
+        { backPath !== null && <FontAwesomeIcon icon={ faChevronLeft } onClick={ resetSearch } /> }
       </Link>
       <div>{ header }</div>
       <Link to='/'>
-        <FontAwesomeIcon icon={ faTimes } />
+        <FontAwesomeIcon icon={ faTimes } onClick={ resetSearch } />
       </Link>
     </nav>
   );
@@ -20,7 +20,7 @@ const NavigationRow = ({ header, type }) => {
 
 NavigationRow.propTypes = {
   header: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired
+  resetSearch: PropTypes.func.isRequired
 };
 
 export default NavigationRow;
