@@ -38,12 +38,12 @@ const CountrySearch = () => {
   // Fetch country code from search term and then top cities from that 
   const search = async (searchTerm) => {
     try {
-      let res = await fetch(`http://api.geonames.org/search?name=${ searchTerm }&maxRows=1&type=json&featureClass=A&username=weknowit`);
+      let res = await fetch(`https://secure.geonames.org/search?name=${ searchTerm }&maxRows=1&type=json&featureClass=A&username=weknowit`);
       let data = await res.json();
 
       const countryCode = data.geonames[0].countryCode;
 
-      res = await fetch(`http://api.geonames.org/search?country=${ countryCode }&maxRows=3&type=json&orderby=population&featureClass=P&username=weknowit`);
+      res = await fetch(`https://secure.geonames.org/search?country=${ countryCode }&maxRows=3&type=json&orderby=population&featureClass=P&username=weknowit`);
       data = await res.json();
 
       const arr = data.geonames.map(city => ({ name: city.name, country: city.countryName, population: city.population }));

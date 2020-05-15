@@ -36,7 +36,7 @@ const CitySearch = () => {
   // Fetch the search term and apply to result
   const search = async (searchTerm) => {
     try {
-      const res = await fetch(`http://api.geonames.org/search?name=${searchTerm}&maxRows=1&type=json&featureClass=P&username=weknowit`);
+      const res = await fetch(`https://secure.geonames.org/search?name=${searchTerm}&maxRows=1&type=json&featureClass=P&username=weknowit`);
       const data = await res.json();
 
       const name = data.geonames[0].name;
