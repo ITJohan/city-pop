@@ -85,14 +85,14 @@ main {
 
 nav {
   display: flex;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   justify-content: space-between;
   padding: 1rem;
 }
 
 .container-row {
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 1rem;
   text-align: center;
   width: 100%;
