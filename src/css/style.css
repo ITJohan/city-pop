@@ -13,6 +13,14 @@
   padding: 0;
 }
 
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
 body {
   align-items: center;
   background: url('../img/background.jpg') center / cover no-repeat;
