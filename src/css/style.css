@@ -22,7 +22,6 @@ a:hover {
 }
 
 body {
-  align-items: center;
   background: url('../img/background.jpg') center / cover no-repeat;
   background-size: cover;
   background-position: top;
@@ -32,10 +31,6 @@ body {
   font-size: 0.5rem;
   height: 100vh;
   justify-content: center;
-}
-
-body div {
-  height: 100%;
 }
 
 button {
