@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
 
+// Top row for container with header, close button and optional back button
 const NavigationRow = ({ header, backPath, resetSearch }) => {
   return (
     <nav>

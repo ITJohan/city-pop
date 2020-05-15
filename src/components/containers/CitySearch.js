@@ -6,6 +6,7 @@ import PopulationRow from '../containers/PopulationRow';
 
 // The city search component, handles everything related to city search
 const CitySearch = () => {
+  
   // Variables
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
