@@ -51,7 +51,10 @@ const CountrySearch = () => {
     // Return search view
     return (
       <main>
-        <NavigationRow header='SEARCH BY COUNTRY' backPath={ null } resetSearch={ () => setResults(null) } />
+        <NavigationRow header='SEARCH BY COUNTRY' backPath={ null } resetSearch={ () => {
+          setCity(null);
+          setResults(null); 
+        }} />
         { loading ?
           <Spinner /> :
           <SearchComponent handleSubmit={ handleSubmit } type='country' />
@@ -63,7 +66,10 @@ const CountrySearch = () => {
     // Return cities view
     return (
       <main>
-        <NavigationRow header={ `${ results[0].country.toUpperCase() }` } backPath='/country' resetSearch={ () => setResults(null) } />
+        <NavigationRow header={ `${ results[0].country.toUpperCase() }` } backPath='/country' resetSearch={ () => {
+           setCity(null);
+           setResults(null);
+        }} />
         { results.map(city => <CityRow city={ city } setCity={ setCity } key={ city.name } />) }
       </main>
     );
@@ -71,7 +77,7 @@ const CountrySearch = () => {
     // Return population view
     return (
       <main>
-        <NavigationRow header={ `${ city.name.toUpperCase() }` } backPath='/country' resetSearch={ () => setResults(null) } />
+        <NavigationRow header={ `${ city.name.toUpperCase() }` } backPath='/country' resetSearch={ () => setCity(null) } />
         <PopulationRow population={ city.population } />
       </main>
     );
