@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Row showing population
 const PopulationRow = ({ population }) => {
   return (
     <div className='container-row'>

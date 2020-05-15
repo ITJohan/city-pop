@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import StartComponent from './components/containers/StartComponent';
-import CitySearch from './components/containers/CitySearch';
-import CountrySearch from './components/containers/CountrySearch';
+import StartComponent from './components/StartComponent';
+import CitySearch from './components/CitySearch';
+import CountrySearch from './components/CountrySearch';
 
 // Main page
 const App = () => {

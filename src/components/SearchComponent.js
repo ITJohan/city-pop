@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+// Search field and search button
 const SearchComponent = ({ handleSubmit, type }) => {
   return (
     <form className='content' onSubmit={ handleSubmit } >

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import NavigationRow from '../NavigationRow';
-import SearchComponent from '../search/SearchComponent';
-import Spinner from '../Spinner';
-import PopulationRow from '../containers/PopulationRow';
+import NavigationRow from './NavigationRow';
+import SearchComponent from './SearchComponent';
+import Spinner from './Spinner';
+import PopulationRow from './PopulationRow';
 
 // The city search component, handles everything related to city search
 const CitySearch = () => {
