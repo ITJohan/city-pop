@@ -7,7 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 const SearchComponent = ({ handleSubmit, type }) => {
   return (
     <form className='content' onSubmit={ handleSubmit } >
-      <input placeholder={ `Enter a ${ type }...` } />
+      <input placeholder={ `Enter a ${ type }...` } autoFocus />
       <button className='round' type='submit'><FontAwesomeIcon icon={ faSearch } /></button>
     </form>
   );
