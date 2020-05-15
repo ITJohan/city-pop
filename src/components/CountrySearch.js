@@ -41,6 +41,12 @@ const CountrySearch = () => {
       let res = await fetch(`https://secure.geonames.org/search?name=${ searchTerm }&maxRows=1&type=json&featureClass=A&username=weknowit`);
       let data = await res.json();
 
+      const country = data.geonames[0].countryName;
+      
+      if (searchTerm.toLowerCase() !== country.toLowerCase()) {
+        throw new Error('Search term and country name does not match');
+      }
+
       const countryCode = data.geonames[0].countryCode;
 
       res = await fetch(`https://secure.geonames.org/search?country=${ countryCode }&maxRows=3&type=json&orderby=population&featureClass=P&username=weknowit`);
@@ -50,6 +56,8 @@ const CountrySearch = () => {
 
       setResults(arr);
     } catch(err) {
+      console.log(err);
+
       // Show error for 3 sec
       setError(true);
       timeout = setTimeout(() => setError(false), 3000);
