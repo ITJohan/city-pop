@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CityRow from '../containers/CityRow';
 import NavigationRow from '../NavigationRow';
 import SearchComponent from '../search/SearchComponent';
@@ -13,6 +13,17 @@ const CountrySearch = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
+  let timeout = null;
+
+  // Clear the error timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeout !== null) {
+        clearTimeout(timeout);
+      }
+    }
+    // eslint-disable-next-line
+  }, [])
 
   // Handle clicked search
   const handleSubmit = e => {
@@ -27,7 +38,7 @@ const CountrySearch = () => {
   // Fetch country code from search term and then top cities from that 
   const search = async (searchTerm) => {
     try {
-      let res = await fetch(`http://api.geonames.org/search?q=${ searchTerm }&maxRows=1&type=json&&username=weknowit`);
+      let res = await fetch(`http://api.geonames.org/search?name=${ searchTerm }&maxRows=1&type=json&featureClass=A&username=weknowit`);
       let data = await res.json();
 
       const countryCode = data.geonames[0].countryCode;
@@ -41,7 +52,7 @@ const CountrySearch = () => {
     } catch(err) {
       // Show error for 3 sec
       setError(true);
-      setTimeout(() => setError(false), 3000);
+      timeout = setTimeout(() => setError(false), 3000);
     }
 
     setLoading(false);

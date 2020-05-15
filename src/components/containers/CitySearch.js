@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavigationRow from '../NavigationRow';
 import SearchComponent from '../search/SearchComponent';
 import Spinner from '../Spinner';
@@ -11,6 +11,17 @@ const CitySearch = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
+  let timeout = null;
+
+  // Clear the error timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeout !== null) {
+        clearTimeout(timeout);
+      }
+    }
+    // eslint-disable-next-line
+  }, [])
 
   // Handle clicked search
   const handleSubmit = e => {
@@ -25,7 +36,7 @@ const CitySearch = () => {
   // Fetch the search term and apply to result
   const search = async (searchTerm) => {
     try {
-      const res = await fetch(`http://api.geonames.org/search?q=${searchTerm}&maxRows=1&type=json&username=weknowit`);
+      const res = await fetch(`http://api.geonames.org/search?name=${searchTerm}&maxRows=1&type=json&featureClass=P&username=weknowit`);
       const data = await res.json();
 
       const name = data.geonames[0].name;
@@ -35,7 +46,7 @@ const CitySearch = () => {
     } catch(err) {
       // Show error for 3 sec
       setError(true);
-      setTimeout(() => setError(false), 3000);
+      timeout = setTimeout(() => setError(false), 3000);
     }
 
     setLoading(false);
@@ -45,7 +56,11 @@ const CitySearch = () => {
     // Return search view
     return (
       <main>
-        <NavigationRow header='SEARCH BY CITY' backPath={ null } resetSearch={ () => setResults(null) } />
+        <NavigationRow header='SEARCH BY CITY' backPath={ null } resetSearch={ () => {
+          setError(false);
+          setLoading(false);
+          setResults(null); 
+        }} />
         { loading ?
           <Spinner /> :
           <SearchComponent handleSubmit={ handleSubmit } type='city' />
