@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const PopulationRow = ({ population }) => {
   return (
     <div className='container-row'>
-      <div><strong>Population</strong></div>
+      <div><strong>POPULATION</strong></div>
       <div>{ population }</div>
     </div>
   );

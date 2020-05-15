@@ -71,6 +71,7 @@ input {
 main {
   background-color: #fff;
   border-radius: 0.25rem;
+  padding-bottom: 2rem;
   width: 30rem;
 }
 
@@ -83,11 +84,15 @@ nav {
 }
 
 .container-row {
-  background-color: #eee;
   font-size: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem;
   text-align: center;
   width: 100%;
+}
+
+.container-row:nth-of-type(2n + 1) {
+  background-color: #eee;
 }
 
 .content {
@@ -96,6 +101,14 @@ nav {
   align-items: center;
   justify-content: center;
   height: auto;
+}
+
+.error {
+  color: #f00;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%
 }
 
 .spinner {
