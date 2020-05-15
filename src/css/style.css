@@ -85,7 +85,6 @@ nav {
 
 .container-row {
   font-size: 1rem;
-  margin-bottom: 1rem;
   padding: 1rem;
   text-align: center;
   width: 100%;
@@ -109,6 +108,11 @@ nav {
   font-weight: bold;
   text-align: center;
   width: 100%
+}
+
+.link:hover {
+  background-color: #ddd;
+  cursor: pointer; 
 }
 
 .spinner {

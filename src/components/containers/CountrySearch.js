@@ -24,20 +24,20 @@ const CountrySearch = () => {
     search(searchTerm);
   };
 
-  // Fetch the search term and apply to result
+  // Fetch country code from search term and then top cities from that 
   const search = async (searchTerm) => {
     try {
-      const res = await fetch(`http://api.geonames.org/search?q=${searchTerm}&maxRows=3&type=json&orderBy=population&username=weknowit`);
-      const data = await res.json();
+      let res = await fetch(`http://api.geonames.org/search?q=${ searchTerm }&maxRows=1&type=json&&username=weknowit`);
+      let data = await res.json();
 
-      const arr = data.geonames.map(city => ({ name: city.name, population: city.population }));
+      const countryCode = data.geonames[0].countryCode;
 
-      console.log(arr);
+      res = await fetch(`http://api.geonames.org/search?country=${ countryCode }&maxRows=3&type=json&orderby=population&featureClass=P&username=weknowit`);
+      data = await res.json();
 
-      // const name = data.geonames[0].name;
-      // const population = data.geonames[0].population;
-      
-      // setResults({ name, population });
+      const arr = data.geonames.map(city => ({ name: city.name, country: city.countryName, population: city.population }));
+
+      setResults(arr);
     } catch(err) {
       // Show error for 3 sec
       setError(true);
@@ -63,16 +63,16 @@ const CountrySearch = () => {
     // Return cities view
     return (
       <main>
-        <NavigationRow header={ `${ results.name.toUpperCase() }` } backPath='/country' resetSearch={ () => setResults(null) } />
-        { results.forEach(city => <CityRow name={ city.name } population={ city.population } key={ city.name } setCity={ setCity } />) }
+        <NavigationRow header={ `${ results[0].country.toUpperCase() }` } backPath='/country' resetSearch={ () => setResults(null) } />
+        { results.map(city => <CityRow city={ city } setCity={ setCity } key={ city.name } />) }
       </main>
     );
   } else {
     // Return population view
     return (
       <main>
-        <NavigationRow header={ `${ results.name.toUpperCase() }` } backPath='/country' resetSearch={ () => setResults(null) } />
-        <PopulationRow population={ results.population } />
+        <NavigationRow header={ `${ city.name.toUpperCase() }` } backPath='/country' resetSearch={ () => setResults(null) } />
+        <PopulationRow population={ city.population } />
       </main>
     );
   }

@@ -4,16 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 // Row with city name and link to citys population
-const CityRow = ({ name, population, setCity }) => {
+const CityRow = ({ city, setCity }) => {
   return (
-    <div className='container-row'>
-      <div>{ name } <FontAwesomeIcon icon={ faChevronRight } onCick={ () => setCity({ name, population }) } /></div>
+    <div className='container-row link' onClick={ () => setCity(city) }>
+      <div>{ city.name } <FontAwesomeIcon icon={ faChevronRight } /></div>
     </div>
   );
 }
 
 CityRow.propTypes = {
-  name: PropTypes.string.isRequired
+  city: PropTypes.object.isRequired,
+  setCity: PropTypes.func.isRequired
 }
 
 export default CityRow;
