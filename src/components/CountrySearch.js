@@ -56,8 +56,6 @@ const CountrySearch = () => {
 
       setResults(arr);
     } catch(err) {
-      console.log(err);
-
       // Show error for 3 sec
       setError(true);
       timeout = setTimeout(() => setError(false), 3000);
