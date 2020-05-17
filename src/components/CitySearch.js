@@ -16,9 +16,7 @@ const CitySearch = () => {
   // Clear the error timeout on unmount
   useEffect(() => {
     return () => {
-      if (timeout !== null) {
-        clearTimeout(timeout);
-      }
+      clearTimeout(timeout);
     }
     // eslint-disable-next-line
   }, [])
@@ -56,11 +54,7 @@ const CitySearch = () => {
     // Return search view
     return (
       <main>
-        <NavigationRow header='SEARCH BY CITY' backPath={ null } resetSearch={ () => {
-          setError(false);
-          setLoading(false);
-          setResults(null); 
-        }} />
+        <NavigationRow header='SEARCH BY CITY' backPath={ null } resetSearch={ () => setResults(null) } />
         { loading ?
           <Spinner /> :
           <SearchComponent handleSubmit={ handleSubmit } type='city' />

@@ -18,9 +18,7 @@ const CountrySearch = () => {
   // Clear the error timeout on unmount
   useEffect(() => {
     return () => {
-      if (timeout !== null) {
-        clearTimeout(timeout);
-      }
+      clearTimeout(timeout);
     }
     // eslint-disable-next-line
   }, [])
